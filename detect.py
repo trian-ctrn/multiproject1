@@ -16,7 +16,7 @@ class_names = open("converted_keras/labels.txt", "r", encoding="utf-8").read
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Replace this with the path to your image
-image = Image.open("WIN_20230607_10_33_22_Pro.jpg").convert("RGB")
+image = Image.open(IMAGE PATH).convert("RGB")
 
 # resizing the image to be at least 224x224 and then cropping from the center
 size = (224, 224)
