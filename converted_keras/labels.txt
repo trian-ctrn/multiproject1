@@ -1,0 +1,6 @@
+0 Tín
+1 Ân
+2 Nguyên
+3 Nhật
+4 Đạt
+5 Background
