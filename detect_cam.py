@@ -15,8 +15,8 @@ model = load_model("converted_keras/keras_model.h5", compile=False)
 class_names = open("converted_keras/labels.txt", "r", encoding="utf-8").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
-camera = cv2.VideoCapture(0)
-#camera = cv2.VideoCapture("http://192.168.1.6:4747/video")
+#camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture("http://172.16.130.206:4747/video")
 
 def image_detector():
     # Grab the webcamera's image.
