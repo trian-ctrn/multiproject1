@@ -1,6 +1,6 @@
-0 Tín
-1 Ân
-2 Nguyên
-3 Nhật
-4 Đạt
+0 Ân
+1 Đạt
+2 Tín
+3 Nguyên
+4 Nhật
 5 Background
