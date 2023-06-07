@@ -1,1 +1,6 @@
-
+adafruit-io
+tensorflow
+keras 
+Pillow
+opencv-python 
+pyserial
