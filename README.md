@@ -10,5 +10,7 @@
 - Nguyễn Khôi Nguyên
 - Hoàng Quang Nhật
 - Lê Viết Tín
+## Requirements
+Run ```pip install -r requirements.txt```.
 ## Reference 
 - Source code in Teachable Machine
