@@ -4,8 +4,8 @@ import time
 from Adafruit_IO import MQTTClient
 
 AIO_FEED_ID = ""
-AIO_USERNAME = "tinvietle"
-AIO_KEY = "aio_NIfo039QcPbkG2LJU2Wdpcz2mXTP"
+AIO_USERNAME = ""
+AIO_KEY = ""
 
 def connected(client):
     print("Ket noi thanh cong ...")
