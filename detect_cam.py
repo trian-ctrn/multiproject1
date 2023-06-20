@@ -17,6 +17,8 @@ class_names = open("converted_keras/labels.txt", "r", encoding="utf-8").readline
 # CAMERA can be 0 or 1 based on default camera of your computer
 camera = cv2.VideoCapture(0)
 #camera = cv2.VideoCapture("http://192.168.1.6:4747/video")
+camera = cv2.VideoCapture(0)
+#camera = cv2.VideoCapture(ENTER DROID CAM IP)
 
 def image_detector():
     # Grab the webcamera's image.

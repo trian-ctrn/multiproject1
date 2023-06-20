@@ -28,6 +28,8 @@ for image_path in image_paths:
 
     # Load the image
     image = Image.open(image_path).convert("RGB")
+# Replace this with the path to your image
+image = Image.open(IMAGEPATH).convert("RGB")
 
     # Resize and crop the image
     size = (224, 224)
