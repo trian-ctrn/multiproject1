@@ -1,3 +1,4 @@
+import sys
 from Adafruit_IO import MQTTClient
 import random
 import time
