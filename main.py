@@ -61,6 +61,5 @@ while True:
     time.sleep(1)
     client.publish("sensor3", sensor3_value)
     time.sleep(1)
-    print("Result on Computer: ", sensor1_value + sensor2_value + sensor3_value)
     client.publish("plot_result", calculate(sensor1_value, sensor2_value, sensor3_value))
     time.sleep(2)
