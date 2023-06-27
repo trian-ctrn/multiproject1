@@ -33,12 +33,12 @@ def init_global_equation():
     headers = {}
     x = requests.get(url = EQUATION_API, headers = headers, verify = False)
     data = x.json()
-    global_equation = x["last_value"]
+    global_equation = data["last_value"]
     print(f"Latest equation value: {global_equation}")
 
 def calculate(x1, x2, x3):
     result = eval(global_equation)
-    print(f"Resut of {global_equation}: {result}")
+    print(f"Resut from Adafruit {global_equation}: {result}")
     return result
 
 client = MQTTClient(AIO_USERNAME , AIO_KEY)
@@ -56,10 +56,11 @@ while True:
     sensor2_value = r.randint(0, 100)
     sensor3_value = r.randint(0, 10)
     client.publish("sensor1", sensor1_value)
-    time.sleep(4)
-    client.publish("sensor2", sensor2_value)
-    time.sleep(4)
-    client.publish("sensor3", sensor3_value)
-    time.sleep(4)
-    client.publish("sensor4", calculate(sensor1_value, sensor2_value, sensor3_value))
     time.sleep(1)
+    client.publish("sensor2", sensor2_value)
+    time.sleep(1)
+    client.publish("sensor3", sensor3_value)
+    time.sleep(1)
+    print("Result on Computer: ", sensor1_value + sensor2_value + sensor3_value)
+    client.publish("plot_result", calculate(sensor1_value, sensor2_value, sensor3_value))
+    time.sleep(2)
