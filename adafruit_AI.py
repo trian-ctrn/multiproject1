@@ -1,11 +1,10 @@
-import sys
+from Adafruit_IO import MQTTClient
 import random
 import time
-from Adafruit_IO import MQTTClient
+from account import AIO_USERNAME, AIO_KEY
+from detect_cam import FaceDetection
 
-AIO_FEED_ID = ""
-AIO_USERNAME = ""
-AIO_KEY = ""
+AIO_FEED_ID = "ai"
 
 def connected(client):
     print("Ket noi thanh cong ...")
@@ -20,19 +19,19 @@ def disconnected(client):
 
 def message(client , feed_id , payload):
     print("Nhan du lieu: " + payload)
-
-client = MQTTClient(AIO_USERNAME , AIO_KEY)
-client.on_connect = connected
-client.on_disconnect = disconnected
-client.on_message = message
-client.on_subscribe = subscribe
-client.connect()
-client.loop_background()
-
-#Code to send random data
-feed_key = 'sensor2'
-while True:
-    value = random.randint(0, 100)
-    print(value)
-    client.publish(feed_key, value)
-    time.sleep(5)
+    
+    
+if __name__ == '__main__':
+    client = MQTTClient(AIO_USERNAME, AIO_KEY)
+    client.on_connect = connected
+    client.on_disconnect = disconnected
+    client.on_message = message
+    client.on_subscribe = subscribe
+    client.connect()
+    client.loop_background()
+    while True:
+        facedetection = FaceDetection()
+        pred, confidence = facedetection.image_detector()
+        value = f"Prediction: {pred} | Confidence: {confidence}%"
+        client.publish(AIO_FEED_ID, value)
+        time.sleep(5)
